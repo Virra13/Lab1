@@ -43,8 +43,6 @@ public class Country {
         setName(name);
         setArea(area);
         setPopulation(population);
-        this.capitalName = null;
-        this.capitalPopulation = 0;
     }
 
     // --------- геттеры ----------
@@ -98,6 +96,8 @@ public class Country {
         if (capitalPopulation < 0) {
            throw new IllegalArgumentException("Население столицы не может быть отрицательным.");
         }
+        this.capitalName = capitalName;
+        this.capitalPopulation = capitalPopulation;
     }
 
     // Плотность населения

@@ -96,12 +96,9 @@ public class Main {
 
                         try {
                             capitalPopulation = Long.parseLong(input);
-                            Country.validateCapitalPopulation(capitalPopulation);
                             break;
                         }catch (NumberFormatException e) {
                             System.out.println("Введите число.");
-                        }catch (IllegalArgumentException e) {
-                            System.out.println(e.getMessage());
                         }
                     }
 
