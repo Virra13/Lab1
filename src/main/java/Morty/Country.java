@@ -101,6 +101,7 @@ public class Country {
 
         if (area <= 0 || population <= 0) {
             throw new IllegalStateException("Невозможно вычислить плотность: некорректные данные.");
+
         }
         return population / area;
     }

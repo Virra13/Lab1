@@ -46,13 +46,13 @@ public class Main {
 
                     try {
                         area = Double.parseDouble(input);
-                       Country.validateArea(area);
+                        Country.validateArea(area);
                             break;
                     }catch (NumberFormatException e) {
                         System.out.println("Введите число.");
-                   }catch (IllegalArgumentException e) {
+                    }catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
-                   }
+                    }
                 }
 
                 long population;
