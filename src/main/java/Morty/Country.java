@@ -47,12 +47,10 @@ public class Country {
 
     // --------- геттеры ----------
     public String getName() {
-
         return name;
     }
 
     public double getArea() {
-
         return area;
     }
 
@@ -61,12 +59,10 @@ public class Country {
     }
 
     public String getCapitalName() {
-
         return capitalName;
     }
 
     public long getCapitalPopulation() {
-
         return capitalPopulation;
     }
 
@@ -105,7 +101,6 @@ public class Country {
 
         if (area <= 0 || population <= 0) {
             throw new IllegalStateException("Невозможно вычислить плотность: некорректные данные.");
-
         }
         return population / area;
     }

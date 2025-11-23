@@ -29,7 +29,7 @@ public class Main {
                 String name;
                 while (true) {
                     System.out.println("Введите название страны:");
-                    name = scanner.nextLine();
+                    name = scanner.nextLine().trim();
 
                     try {
                         Country.validateName(name);
@@ -46,13 +46,13 @@ public class Main {
 
                     try {
                         area = Double.parseDouble(input);
-                        Country.validateArea(area);
+                       Country.validateArea(area);
                             break;
                     }catch (NumberFormatException e) {
                         System.out.println("Введите число.");
-                    }catch (IllegalArgumentException e) {
+                   }catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
-                    }
+                   }
                 }
 
                 long population;
@@ -87,7 +87,7 @@ public class Main {
                 if (answer.equals("y")) {
 
                     System.out.println("Введите название столицы");
-                    String capitalName = scanner.nextLine();
+                    String capitalName = scanner.nextLine().trim();
 
                     long capitalPopulation;
                     while (true) {
