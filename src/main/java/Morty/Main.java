@@ -48,7 +48,9 @@ public class Main {
                         area = Double.parseDouble(input);
                         Country.validateArea(area);
                             break;
-                    } catch (IllegalArgumentException e) {
+                    }catch (NumberFormatException e) {
+                        System.out.println("Введите число.");
+                    }catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
                 }
@@ -62,6 +64,8 @@ public class Main {
                         population = Long.parseLong(input);
                         Country.validatePopulation(population);
                         break;
+                    }catch (NumberFormatException e) {
+                        System.out.println("Введите число.");
                     }catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
@@ -85,8 +89,21 @@ public class Main {
                     System.out.println("Введите название столицы");
                     String capitalName = scanner.nextLine();
 
-                    System.out.println("Введите население столицы:");
-                    long capitalPopulation = Long.parseLong(scanner.nextLine());
+                    long capitalPopulation;
+                    while (true) {
+                        System.out.println("Введите население столицы:");
+                        String input = scanner.nextLine().trim();
+
+                        try {
+                            capitalPopulation = Long.parseLong(input);
+                            Country.validateCapitalPopulation(capitalPopulation);
+                            break;
+                        }catch (NumberFormatException e) {
+                            System.out.println("Введите число.");
+                        }catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
 
                     newCountry = new Country(name, area, population, capitalName, capitalPopulation);
 

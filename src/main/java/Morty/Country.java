@@ -88,14 +88,16 @@ public class Country {
         this.population = population;
     }
 
-    public void setCapitalName(String capitalName) {
-
-        this.capitalName = capitalName;
-    }
-
     // Управление столицей
-    void setCapital(String capitalName, long capitalPopulation) {
-
+    public void setCapital(String capitalName, long capitalPopulation) {
+        if (capitalName == null) {
+            this.capitalName = null;
+            this.capitalPopulation = 0;
+            return;
+        }
+        if (capitalPopulation < 0) {
+           throw new IllegalArgumentException("Население столицы не может быть отрицательным.");
+        }
     }
 
     // Плотность населения
@@ -106,7 +108,6 @@ public class Country {
 
         }
         return population / area;
-
     }
 
     // toString
@@ -122,7 +123,7 @@ public class Country {
             c = "\nСтолица: " + capitalName + ", население: " + capitalPopulation;
         }
 
-        return name + ": " + area + p + c;
+        return name + ": " + area + " км²" + p + c;
     }
 
 }
