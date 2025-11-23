@@ -26,8 +26,18 @@ public class Main {
 
             }else if (command.equals("create")) {
 
-                System.out.println("Введите название страны:");
-                String name = scanner.nextLine();
+                String name;
+                while (true) {
+                    System.out.println("Введите название страны:");
+                    name = scanner.nextLine();
+
+                    try {
+
+                    }
+
+                }
+
+
 
                 System.out.println("Введите площадь (км²):");
 
@@ -52,7 +62,7 @@ public class Main {
                     String line = scanner.nextLine();
                     try {
                         population = Long.parseLong(line);
-                        if (population)
+                        if (population )
                     }
                 }
                 //Long population = Long.parseLong(scanner.nextLine());//

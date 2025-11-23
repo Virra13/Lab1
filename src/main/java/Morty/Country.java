@@ -8,23 +8,22 @@ public class Country {
     private String capitalName;
     private long capitalPopulation;
 
-    Country(String name, double area, long population, String capitalName, long
-            capitalPopulation) {
-        this.name = name;
-        this.area = area;
-        this.population = population;
-        this.capitalName = capitalName;
-        this.capitalPopulation = capitalPopulation;
+    public Country(String name, double area, long population,
+                   String capitalName, long capitalPopulation) {
+
+        setName(name);
+        setArea(area);
+        setPopulation(population);
+        setCapital(capitalName, capitalPopulation);
     }
 
-    Country(String name, double area, long population) {
-        this.name = name;
-        this.area = area;
-        this.population = population;
+   public Country(String name, double area, long population) {
+        setName(name);
+        setArea(area);
+        setPopulation(population);
         this.capitalName = null;
         this.capitalPopulation = 0;
     }
-
 
     public String getName(){
 
@@ -33,6 +32,9 @@ public class Country {
 
     public void setName(String name) {
 
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Название страны не может быть пустым");
+        }
         this.name = name;
     }
 
@@ -43,16 +45,21 @@ public class Country {
 
     public void setArea(double area) {
 
+        if (area <= 0) {
+            throw new IllegalArgumentException("Площадь должна быть строго больше нуля.");
+        }
         this.area = area;
     }
 
     public long getPopulation() {
-        return
-                population;
+        return population;
     }
 
     public void setPopulation(long population) {
 
+        if (population < 0) {
+            throw new IllegalArgumentException("Население не может быть отрицательным.");
+        }
         this.population = population;
     }
 
@@ -71,21 +78,16 @@ public class Country {
         return capitalPopulation;
     }
 
-  /*
-        public double getPopulationDensity() {
-        if (area = double =<0) {
-        }else {
-           double v;
-           v = population / area;
-           return v;
-        }
-        }
-      */
+    public double getPopulationDensity() {
 
-    public void setCapitalPopulation(Long capitalPopulation) {
+        if (area <=0 || population <= 0) {
+            throw new IllegalStateException("Невозможно вычислить плотность: некорректные данные.");
 
-        this.capitalPopulation = capitalPopulation;
+        }
+        return population / area;
+
     }
+}
 
     void setCapital(String capitalName, long capitalPopulation) {
 
