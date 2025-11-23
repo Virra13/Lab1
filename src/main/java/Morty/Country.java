@@ -8,6 +8,27 @@ public class Country {
     private String capitalName;
     private long capitalPopulation;
 
+
+    // --------- валидаторы ----------
+    public static void validateName (String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Название страны не может быть пустым");
+        }
+    }
+
+    public static void validateArea (double area) {
+        if (area <= 0) {
+            throw new IllegalArgumentException("Площадь должна быть строго больше нуля.");
+        }
+    }
+
+    public static void validatePopulation (long population) {
+        if (population < 0) {
+            throw new IllegalArgumentException("Население не может быть отрицательным.");
+        }
+    }
+
+    // Конструктор со столицей
     public Country(String name, double area, long population,
                    String capitalName, long capitalPopulation) {
 
@@ -17,7 +38,8 @@ public class Country {
         setCapital(capitalName, capitalPopulation);
     }
 
-   public Country(String name, double area, long population) {
+    // Конструктор без столицы (страна-город)
+    public Country(String name, double area, long population) {
         setName(name);
         setArea(area);
         setPopulation(population);
@@ -25,17 +47,10 @@ public class Country {
         this.capitalPopulation = 0;
     }
 
-    public String getName(){
+    // --------- геттеры ----------
+    public String getName() {
 
         return name;
-    }
-
-    public void setName(String name) {
-
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Название страны не может быть пустым");
-        }
-        this.name = name;
     }
 
     public double getArea() {
@@ -43,24 +58,8 @@ public class Country {
         return area;
     }
 
-    public void setArea(double area) {
-
-        if (area <= 0) {
-            throw new IllegalArgumentException("Площадь должна быть строго больше нуля.");
-        }
-        this.area = area;
-    }
-
     public long getPopulation() {
         return population;
-    }
-
-    public void setPopulation(long population) {
-
-        if (population < 0) {
-            throw new IllegalArgumentException("Население не может быть отрицательным.");
-        }
-        this.population = population;
     }
 
     public String getCapitalName() {
@@ -68,34 +67,63 @@ public class Country {
         return capitalName;
     }
 
-    public void setCapitalName(String capitalName) {
-
-        this.capitalName = capitalName;
-    }
-
     public long getCapitalPopulation() {
 
         return capitalPopulation;
     }
 
+    // --------- сеттеры  ----------
+    public void setName(String name) {
+        validateName(name);
+        this.name = name;
+    }
+
+    public void setArea(double area) {
+        validateArea(area);
+        this.area = area;
+    }
+
+    public void setPopulation(long population) {
+        validatePopulation(population);
+        this.population = population;
+    }
+
+    public void setCapitalName(String capitalName) {
+
+        this.capitalName = capitalName;
+    }
+
+    // Управление столицей
+    void setCapital(String capitalName, long capitalPopulation) {
+
+    }
+
+    // Плотность населения
     public double getPopulationDensity() {
 
-        if (area <=0 || population <= 0) {
+        if (area <= 0 || population <= 0) {
             throw new IllegalStateException("Невозможно вычислить плотность: некорректные данные.");
 
         }
         return population / area;
 
     }
-}
 
-    void setCapital(String capitalName, long capitalPopulation) {
+    // toString
+    @Override
+    public String toString() {
+        String p = "";
+        if (population > 0) {
+            p = ", население: " + population;
+        }
 
+        String c = "";
+        if (capitalName != null && capitalPopulation > 0) {
+            c = "\nСтолица: " + capitalName + ", население: " + capitalPopulation;
+        }
+
+        return name + ": " + area + p + c;
     }
 
-   public String toString(){
-
-        return name + ": " + area + " км², население: " + population + "\nСтолица: " + capitalName + ", население: " + capitalPopulation;
-    }
 }
 

@@ -32,12 +32,12 @@ public class Main {
                     name = scanner.nextLine();
 
                     try {
-
+                        Country.validateName(name);
+                        break;
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
                     }
-
                 }
-
-
 
                 System.out.println("Введите площадь (км²):");
 
