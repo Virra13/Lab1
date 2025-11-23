@@ -17,14 +17,14 @@ public class Main {
         while (true) {
 
             System.out.println("Введите команду:");
-            String command = scanner.nextLine().toLowerCase();
+            String command = scanner.nextLine().trim().toLowerCase();
 
             if(command.equals(exit)){
 
                 System.out.println("Программа завершена.");
                 break;
 
-            }else if (command.equals("create")) {
+            }else if (command.equals(create)) {
 
                 String name;
                 while (true) {
@@ -39,33 +39,33 @@ public class Main {
                     }
                 }
 
-                System.out.println("Введите площадь (км²):");
-
                 double area;
                 while (true) {
-                    String line = scanner.nextLine();
-                    try {
-                        area = Double.parseDouble(line);
-                        if (area > 0) {
-                            break;
-                        }else  {
-                            System.out.println("Значение должно быть больше нуля.");
-                        }
-                    } catch (NumberFormatException e) {
-                        System.out.println("Введите число.");
-                        }
-                }
+                    System.out.println("Введите площадь (км²):");
+                    String input = scanner.nextLine().trim();
 
-                System.out.println("Введите население:");
-                long population;
-                while (true) {
-                    String line = scanner.nextLine();
                     try {
-                        population = Long.parseLong(line);
-                        if (population )
+                        area = Double.parseDouble(input);
+                        Country.validateArea(area);
+                            break;
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
                     }
                 }
-                //Long population = Long.parseLong(scanner.nextLine());//
+
+                long population;
+                while (true) {
+                    System.out.println("Введите население:");
+                    String input = scanner.nextLine().trim();
+
+                    try {
+                        population = Long.parseLong(input);
+                        Country.validatePopulation(population);
+                        break;
+                    }catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
 
                 String answer;
                 while (true) {
@@ -80,14 +80,15 @@ public class Main {
                 }
 
                 Country newCountry;
-
                 if (answer.equals("y")) {
+
                     System.out.println("Введите название столицы");
                     String capitalName = scanner.nextLine();
-                    System.out.println("Введите население столицы:");
-                    Long capitalpopulation = Long.parseLong(scanner.nextLine());
 
-                    newCountry = new Country(name, area, population, capitalName, capitalpopulation);
+                    System.out.println("Введите население столицы:");
+                    long capitalPopulation = Long.parseLong(scanner.nextLine());
+
+                    newCountry = new Country(name, area, population, capitalName, capitalPopulation);
 
                 } else {
                     newCountry = new Country(name, area, population);
@@ -96,10 +97,10 @@ public class Main {
 
                 countries[index] = newCountry;
 
-                System.out.println("Страна добавлена: " + name);
+                System.out.println("Страна добавлена: " + newCountry.getName());
                 index++;
 
-            }else if(command.equals("print")) {
+            }else if(command.equals(print)) {
                 printAll(countries);
 
             }else {
@@ -110,9 +111,9 @@ public class Main {
 
     public static void printAll(Country[] countries) {
 
-        for(int i=0; i<countries.length; i++){
-            if(countries[i]!=null) {
-                System.out.println(countries[i].toString());
+        for(Country c : countries){
+            if(c != null) {
+                System.out.println(c);
             }
         }
 
