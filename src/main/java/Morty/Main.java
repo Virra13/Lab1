@@ -26,12 +26,12 @@ public class Main {
             System.out.println("Введите команду:");
             String command = scanner.nextLine().trim().toLowerCase();
 
-            if(command.equals(exit)){
+            if (command.equals(exit)) {
 
                 System.out.println("Программа завершена.");
                 break;
 
-            }else if (command.equals(create)) {
+            } else if (command.equals(create)) {
 
                 String name;
                 while (true) {
@@ -54,10 +54,10 @@ public class Main {
                     try {
                         area = Double.parseDouble(input);
                         Country.validateArea(area);
-                            break;
-                    }catch (NumberFormatException e) {
+                        break;
+                    } catch (NumberFormatException e) {
                         System.out.println("Введите число.");
-                    }catch (IllegalArgumentException e) {
+                    } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
                 }
@@ -71,15 +71,15 @@ public class Main {
                         population = Long.parseLong(input);
                         Country.validatePopulation(population);
                         break;
-                    }catch (NumberFormatException e) {
+                    } catch (NumberFormatException e) {
                         System.out.println("Введите число.");
-                    }catch (IllegalArgumentException e) {
+                    } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
                 }
 
                 String answer;
-                Country  newCountry;
+                Country newCountry;
 
                 while (true) {
                     System.out.println("Есть ли столица? (y/n):");
@@ -121,7 +121,7 @@ public class Main {
 
                         } catch (IllegalArgumentException e) {
                             System.out.println(e.getMessage());
-                    }
+                        }
 
                     }
 
@@ -138,10 +138,10 @@ public class Main {
                 System.out.println("Страна добавлена: " + newCountry.getName());
                 index++;
 
-            }else if(command.equals(print)) {
+            } else if (command.equals(print)) {
                 printAll(countries);
 
-            }else {
+            } else {
                 System.out.println("Неизвестная команда. Доступные: create, print, exit.");
             }
         }
@@ -149,9 +149,10 @@ public class Main {
 
     public static void printAll(Country[] countries) {
 
-        for(Country c : countries){
-            if(c != null) {
+        for (Country c : countries) {
+            if (c != null) {
                 System.out.println(c);
+                System.out.println();
             }
         }
 

@@ -9,32 +9,33 @@ public class Country {
     private long capitalPopulation;
 
     // --------- валидаторы ----------
-    public static void validateName (String name) {
+    public static void validateName(String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Название страны не может быть пустым");
         }
     }
 
-    public static void validateArea (double area) {
+    public static void validateArea(double area) {
         if (area <= 0) {
             throw new IllegalArgumentException("Площадь должна быть строго больше нуля.");
         }
     }
 
-    public static void validatePopulation (long population) {
+    public static void validatePopulation(long population) {
         if (population < 0) {
             throw new IllegalArgumentException("Население не может быть отрицательным.");
         }
     }
 
-    public static void validateCapitalName (String capitalName) {
+    public static void validateCapitalName(String capitalName) {
         if (capitalName == null || capitalName.trim().isEmpty()) {
             throw new IllegalArgumentException("Название столицы не может быть пустым");
         }
     }
-    public static void validateCapitalPopulation (long capitalPopulation) {
+
+    public static void validateCapitalPopulation(long capitalPopulation) {
         if (capitalPopulation < 0) {
-                throw new IllegalArgumentException("Население столицы не может быть отрицательным.");
+            throw new IllegalArgumentException("Население столицы не может быть отрицательным.");
         }
     }
 
@@ -130,7 +131,7 @@ public class Country {
             c = "\nСтолица: " + capitalName + ", население: " + capitalPopulation;
         }
 
-        return name + ": " + area + " км²" + p + c;
+        return name + ": " + String.format("%.0f", area) + " км²" + p + c;
     }
 
 }
