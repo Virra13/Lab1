@@ -8,7 +8,6 @@ public class Country {
     private String capitalName;
     private long capitalPopulation;
 
-
     // --------- валидаторы ----------
     public static void validateName (String name) {
         if (name == null || name.trim().isEmpty()) {

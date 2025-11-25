@@ -5,14 +5,21 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Country[] countries = new Country[5];
+        Country[] countries = new Country[10];
         Scanner scanner = new Scanner(System.in);
+
+        // Иницилизация тестовых данных
+        countries[0] = new Country("Russia", 17100000, 146700000, "Moscow", 12600000);
+        countries[1] = new Country("Finland", 338000, 5500000, "Helsinki", 655000);
+        countries[2] = new Country("France", 643800, 67800000, "Paris", 2100000);
+        countries[3] = new Country("Andorra", 467, 85400, "Andorra la Vella", 22600);
+        countries[4] = new Country("Singapore", 2, 5700000);
 
         String exit = "exit";
         String create = "create";
         String print = "print";
 
-        int index = 0;
+        int index = 5;
 
         while (true) {
 
@@ -109,6 +116,10 @@ public class Main {
 
                 }
 
+                if (index >= countries.length) {
+                    countries = extendArray(countries);
+                }
+
                 countries[index] = newCountry;
 
                 System.out.println("Страна добавлена: " + newCountry.getName());
@@ -131,6 +142,13 @@ public class Main {
             }
         }
 
+    }
+
+    @org.jetbrains.annotations.NotNull
+    private static Country[] extendArray(Country[] oldArray) {
+        Country[] newArray = new Country[oldArray.length * 2];
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
+        return newArray;
     }
 
 }
