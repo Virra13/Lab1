@@ -79,22 +79,32 @@ public class Main {
                 }
 
                 String answer;
+                Country  newCountry;
+
                 while (true) {
                     System.out.println("Есть ли столица? (y/n):");
                     answer = scanner.nextLine().trim().toLowerCase();
 
-                    if (answer.equals("y") || answer.equals("n")) {
-                        break;
-                    }else {
+                    if (!answer.equals("y") && !answer.equals("n")) {
                         System.out.println("Некорректный ввод. Введите 'y' или 'n'.");
+                        continue;
                     }
-                }
 
-                Country newCountry;
-                if (answer.equals("y")) {
+                    if (answer.equals("n")) {
+                        newCountry = new Country(name, area, population);
+                        break;
+                    }
 
-                    System.out.println("Введите название столицы");
+                    System.out.println("Введите название столицы:");
                     String capitalName = scanner.nextLine().trim();
+
+                    try {
+                        Country.validateCapitalName(capitalName);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                        System.out.println("Уточните свой выбор.");
+                        continue;
+                    }
 
                     long capitalPopulation;
                     while (true) {
@@ -103,17 +113,20 @@ public class Main {
 
                         try {
                             capitalPopulation = Long.parseLong(input);
+                            Country.validateCapitalPopulation(capitalPopulation);
                             break;
-                        }catch (NumberFormatException e) {
+
+                        } catch (NumberFormatException e) {
                             System.out.println("Введите число.");
-                        }
+
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
+                    }
+
                     }
 
                     newCountry = new Country(name, area, population, capitalName, capitalPopulation);
-
-                } else {
-                    newCountry = new Country(name, area, population);
-
+                    break;
                 }
 
                 if (index >= countries.length) {

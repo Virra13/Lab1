@@ -27,6 +27,17 @@ public class Country {
         }
     }
 
+    public static void validateCapitalName (String capitalName) {
+        if (capitalName == null || capitalName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Название столицы не может быть пустым");
+        }
+    }
+    public static void validateCapitalPopulation (long capitalPopulation) {
+        if (capitalPopulation < 0) {
+                throw new IllegalArgumentException("Население столицы не может быть отрицательным.");
+        }
+    }
+
     // Конструктор со столицей
     public Country(String name, double area, long population,
                    String capitalName, long capitalPopulation) {
@@ -88,9 +99,10 @@ public class Country {
             this.capitalPopulation = 0;
             return;
         }
-        if (capitalPopulation < 0) {
-           throw new IllegalArgumentException("Население столицы не может быть отрицательным.");
-        }
+
+        validateCapitalName(capitalName);
+        validateCapitalPopulation(capitalPopulation);
+
         this.capitalName = capitalName;
         this.capitalPopulation = capitalPopulation;
     }
