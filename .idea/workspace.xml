@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="db06cc89-9e29-4c13-89bf-0d0c9e5b9dd3" name="Changes" comment="finalNewFinal1" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Virra13&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Virra13/Lab1.git&quot;,
+    &quot;accountId&quot;: &quot;ae60f02f-2bda-415b-8853-87c51493bcdf&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="35mPZUH8puEM5LLdr79xejvKAQA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/javaLessson/javaProject/Lab1",
+    "onboarding.tips.debug.path": "E:/java project/Lab1/src/main/java/Morty/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "inlay.hints"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db06cc89-9e29-4c13-89bf-0d0c9e5b9dd3" name="Changes" comment="" />
+      <created>1763712329607</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763712329607</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1763881463819</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763881463819</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1763882122418</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1763882122418</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1763907583740</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763907583740</updated>
+    </task>
+    <task id="LOCAL-00004" summary="сommit">
+      <option name="closed" value="true" />
+      <created>1763918500369</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763918500369</updated>
+    </task>
+    <task id="LOCAL-00005" summary="сommit">
+      <option name="closed" value="true" />
+      <created>1763922521188</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1763922521188</updated>
+    </task>
+    <task id="LOCAL-00006" summary="сommit2">
+      <option name="closed" value="true" />
+      <created>1763926239322</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1763926239322</updated>
+    </task>
+    <task id="LOCAL-00007" summary="worked">
+      <option name="closed" value="true" />
+      <created>1763929009634</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1763929009634</updated>
+    </task>
+    <task id="LOCAL-00008" summary="worked1">
+      <option name="closed" value="true" />
+      <created>1763931239426</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1763931239426</updated>
+    </task>
+    <task id="LOCAL-00009" summary="worked2">
+      <option name="closed" value="true" />
+      <created>1763932724086</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1763932724086</updated>
+    </task>
+    <task id="LOCAL-00010" summary="worked22">
+      <option name="closed" value="true" />
+      <created>1764092913697</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1764092913697</updated>
+    </task>
+    <task id="LOCAL-00011" summary="letItBe">
+      <option name="closed" value="true" />
+      <created>1764095757547</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764095757547</updated>
+    </task>
+    <task id="LOCAL-00012" summary="finalFinal">
+      <option name="closed" value="true" />
+      <created>1764096808474</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764096808474</updated>
+    </task>
+    <task id="LOCAL-00013" summary="finalNewFinal">
+      <option name="closed" value="true" />
+      <created>1764099322703</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1764099322703</updated>
+    </task>
+    <task id="LOCAL-00014" summary="finalNewFinal1">
+      <option name="closed" value="true" />
+      <created>1764100089003</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764100089003</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="сommit" />
+    <MESSAGE value="сommit2" />
+    <MESSAGE value="worked" />
+    <MESSAGE value="worked1" />
+    <MESSAGE value="worked2" />
+    <MESSAGE value="worked22" />
+    <MESSAGE value="letItBe" />
+    <MESSAGE value="finalFinal" />
+    <MESSAGE value="finalNewFinal" />
+    <MESSAGE value="finalNewFinal1" />
+    <option name="LAST_COMMIT_MESSAGE" value="finalNewFinal1" />
+  </component>
+</project>
