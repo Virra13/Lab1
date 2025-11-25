@@ -133,7 +133,6 @@ public class Main {
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
                             }
-
                         }
 
                         newCountry = new Country(name, area, population, capitalName, capitalPopulation);
@@ -157,7 +156,6 @@ public class Main {
                 default:
                     System.out.println("Неизвестная команда. Доступные: create, print, exit.");
             }
-
         }
     }
 
@@ -179,7 +177,6 @@ public class Main {
                 System.out.println();
             }
         }
-
     }
 
     /**
@@ -195,5 +192,4 @@ public class Main {
         System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
-
 }
