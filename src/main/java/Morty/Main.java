@@ -4,8 +4,16 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static final String COMMAND_EXIT = "exit";
+    private static final String COMMAND_CREATE = "create";
+    private static final String COMMAND_PRINT = "print";
+    private static final String YES = "y";
+    private static final String NO = "n";
+    private static final int INITIAL_CAPACITY = 10;
+    private static final int GROW_FACTOR = 2;
+
     public static void main(String[] args) {
-        Country[] countries = new Country[10];
+        Country[] countries = new Country[INITIAL_CAPACITY];
         Scanner scanner = new Scanner(System.in);
 
         // Иницилизация тестовых данных
@@ -15,135 +23,134 @@ public class Main {
         countries[3] = new Country("Andorra", 467, 85400, "Andorra la Vella", 22600);
         countries[4] = new Country("Singapore", 2, 5700000);
 
-        String exit = "exit";
-        String create = "create";
-        String print = "print";
-
         int index = 5;
 
+        mainLoop:
         while (true) {
 
             System.out.println("Введите команду:");
             String command = scanner.nextLine().trim().toLowerCase();
 
-            if (command.equals(exit)) {
+            switch (command) {
+                case COMMAND_EXIT:
 
-                System.out.println("Программа завершена.");
-                break;
+                    System.out.println("Программа завершена.");
+                    break mainLoop;
 
-            } else if (command.equals(create)) {
+                case COMMAND_CREATE:
 
-                String name;
-                while (true) {
-                    System.out.println("Введите название страны:");
-                    name = scanner.nextLine().trim();
-
-                    try {
-                        Country.validateName(name);
-                        break;
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-
-                double area;
-                while (true) {
-                    System.out.println("Введите площадь (км²):");
-                    String input = scanner.nextLine().trim();
-
-                    try {
-                        area = Double.parseDouble(input);
-                        Country.validateArea(area);
-                        break;
-                    } catch (NumberFormatException e) {
-                        System.out.println("Введите число.");
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-
-                long population;
-                while (true) {
-                    System.out.println("Введите население:");
-                    String input = scanner.nextLine().trim();
-
-                    try {
-                        population = Long.parseLong(input);
-                        Country.validatePopulation(population);
-                        break;
-                    } catch (NumberFormatException e) {
-                        System.out.println("Введите число.");
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-
-                String answer;
-                Country newCountry;
-
-                while (true) {
-                    System.out.println("Есть ли столица? (y/n):");
-                    answer = scanner.nextLine().trim().toLowerCase();
-
-                    if (!answer.equals("y") && !answer.equals("n")) {
-                        System.out.println("Некорректный ввод. Введите 'y' или 'n'.");
-                        continue;
-                    }
-
-                    if (answer.equals("n")) {
-                        newCountry = new Country(name, area, population);
-                        break;
-                    }
-
-                    System.out.println("Введите название столицы:");
-                    String capitalName = scanner.nextLine().trim();
-
-                    try {
-                        Country.validateCapitalName(capitalName);
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                        System.out.println("Уточните свой выбор.");
-                        continue;
-                    }
-
-                    long capitalPopulation;
+                    String name;
                     while (true) {
-                        System.out.println("Введите население столицы:");
-                        String input = scanner.nextLine().trim();
+                        System.out.println("Введите название страны:");
+                        name = scanner.nextLine().trim();
 
                         try {
-                            capitalPopulation = Long.parseLong(input);
-                            Country.validateCapitalPopulation(capitalPopulation);
+                            Country.validateName(name);
                             break;
-
-                        } catch (NumberFormatException e) {
-                            System.out.println("Введите число.");
-
                         } catch (IllegalArgumentException e) {
                             System.out.println(e.getMessage());
                         }
-
                     }
 
-                    newCountry = new Country(name, area, population, capitalName, capitalPopulation);
-                    break;
-                }
+                    double area;
+                    while (true) {
+                        System.out.println("Введите площадь (км²):");
+                        String input = scanner.nextLine().trim();
 
-                if (index >= countries.length) {
-                    countries = extendArray(countries);
-                }
+                        try {
+                            area = Double.parseDouble(input);
+                            Country.validateArea(area);
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Введите число.");
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
 
-                countries[index] = newCountry;
+                    long population;
+                    while (true) {
+                        System.out.println("Введите население:");
+                        String input = scanner.nextLine().trim();
 
-                System.out.println("Страна добавлена: " + newCountry.getName());
-                index++;
+                        try {
+                            population = Long.parseLong(input);
+                            Country.validatePopulation(population);
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Введите число.");
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
 
-            } else if (command.equals(print)) {
-                printAll(countries);
+                    String answer;
+                    Country newCountry;
 
-            } else {
-                System.out.println("Неизвестная команда. Доступные: create, print, exit.");
+                    while (true) {
+                        System.out.println("Есть ли столица? (y/n):");
+                        answer = scanner.nextLine().trim().toLowerCase();
+
+                        if (!answer.equals(YES) && !answer.equals(NO)) {
+                            System.out.println("Некорректный ввод. Введите 'y' или 'n'.");
+                            continue;
+                        }
+
+                        if (answer.equals(NO)) {
+                            newCountry = new Country(name, area, population);
+                            break;
+                        }
+
+                        System.out.println("Введите название столицы:");
+                        String capitalName = scanner.nextLine().trim();
+
+                        try {
+                            Country.validateCapitalName(capitalName);
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
+                            System.out.println("Уточните свой выбор.");
+                            continue;
+                        }
+
+                        long capitalPopulation;
+                        while (true) {
+                            System.out.println("Введите население столицы:");
+                            String input = scanner.nextLine().trim();
+
+                            try {
+                                capitalPopulation = Long.parseLong(input);
+                                Country.validateCapitalPopulation(capitalPopulation);
+                                break;
+
+                            } catch (NumberFormatException e) {
+                                System.out.println("Введите число.");
+
+                            } catch (IllegalArgumentException e) {
+                                System.out.println(e.getMessage());
+                            }
+
+                        }
+
+                        newCountry = new Country(name, area, population, capitalName, capitalPopulation);
+                        break;
+                    }
+
+                    if (index >= countries.length) {
+                        countries = extendArray(countries);
+                    }
+
+                    countries[index] = newCountry;
+
+                    System.out.println("Страна добавлена: " + newCountry.getName());
+                    index++;
+
+                case COMMAND_PRINT:
+                    printAll(countries);
+
+                default:
+                    System.out.println("Неизвестная команда. Доступные: create, print, exit.");
             }
+
         }
     }
 
@@ -158,9 +165,8 @@ public class Main {
 
     }
 
-    @org.jetbrains.annotations.NotNull
     private static Country[] extendArray(Country[] oldArray) {
-        Country[] newArray = new Country[oldArray.length * 2];
+        Country[] newArray = new Country[oldArray.length * GROW_FACTOR];
         System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
