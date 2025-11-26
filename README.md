@@ -1,1 +1,1 @@
-Laboratory work for credit in the course "Java Syntax".
+Лаборатоная работа к зачету по курсу "Java Syntax".
